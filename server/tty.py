@@ -1,4 +1,4 @@
-import serial
+from serial import Serial
 import struct
 from threading import Thread
 from queue import Queue
@@ -17,7 +17,7 @@ class TTY(Thread):
         print("Waiting for USB Dongle...")
         while not self._ser:
             try:
-                self._ser = serial.Serial(config.dongle_port, 115200)
+                self._ser = Serial(config.dongle_port, 115200)
             except:
                 sleep(0.01)
         Thread.__init__(self)
@@ -39,6 +39,7 @@ class TTY(Thread):
             if (self._ser.inWaiting() > 0):
                 print(self._ser.read_all().decode(), sep="")
             sleep(0.1)
+        print("Initializing: Done")
 
     def run(self):
         buf = b''

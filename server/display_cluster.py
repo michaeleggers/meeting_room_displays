@@ -12,13 +12,22 @@ locale.setlocale(locale.LC_TIME, 'de_DE.UTF-8')
 class DisplayCluster(dict):
 
     def __init__(self, dongle):
+        print("display_cluster.py: super init")
         super().__init__()
+        print("display_cluster.py: super init done")
+
+
         self._dongle = dongle
+        print("display_cluster.py: sending to dongle: ", config.group_addr, MessageType.SYNC)        
         self._dongle.send(config.group_addr, MessageType.SYNC)
+        print("display_cluster.py: sending to dongle: done")
+
         for address, room in config.displays.items():
             self[room] = Display(dongle, address)
             self[room].set_room(room)
             self[room].clear_events()
+        print("display_cluster.py: init done")
+
 
     def rooms(self):
         return self.keys()

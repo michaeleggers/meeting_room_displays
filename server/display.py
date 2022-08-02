@@ -1,4 +1,5 @@
 from message import MessageType
+from o365_calendar import EventMock
 
 NUMBER_OF_SLOTS = 16
 

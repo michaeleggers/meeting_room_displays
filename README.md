@@ -1,3 +1,13 @@
+---
+**NOTE**
+
+This branch mocks event objects queried by O365 to eliminate
+the need for a Microsoft account.
+It focuses on getting data from the dongle successfully sent
+to displays.
+---
+
+
 # Meeting room displays
 
 Bluetooth mesh based long lasting meeting room displays.
@@ -34,6 +44,18 @@ matter which ttyACM enumeration it got.
 ```bash
 sudo cp meeting_room_displays/20_DiplayDongleUDev.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+
+### If Udev does not work
+
+Change Makefile and config.py to use ttyACM0. Most of the time this will work
+Make sure you set write permission-bits for /dev/ttyACM0:
+```
+sudo chmod 666 /dev/ttyACM0
+```
+And change the ownership by:
+```
+sudo chown <username> /dev/ttyACM0
 ```
 
 ## Installing Zephyr SDK

@@ -49,4 +49,4 @@ flash-dongle:
 	# Uncomment the following two lines if /dev/ttyDisplayDongle won't show up after setting udev rule
 	# sudo touch /dev/ttyDisplayDongle
 	# sudo chmod 777 /dev/ttyDisplayDongle
-	nrfutil dfu usb-serial -pkg dongle-build/dongle.zip -p /dev/ttyDisplayDongle
+	nrfutil dfu usb-serial -pkg dongle-build/dongle.zip -p /dev/ttyACM0
