@@ -4,16 +4,16 @@ import os
 
 import config
 
-class HourMock():
-    def __init__(self, hour, minute):
-        self.hour = hour
-        self.minute = minute
+# class HourMock():
+#     def __init__(self, hour, minute):
+#         self.hour = hour
+#         self.minute = minute
 
 class EventMock():
     def __init__(self, subject, start, end):
         self.subject = subject
-        self.start = HourMock(start, 0)
-        self.end = HourMock(end, 0)
+        self.start = datetime.time(start, 0, 0, 0)
+        self.end = datetime.time(end, 0, 0, 0)
 
 
 class Calendar():

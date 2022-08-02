@@ -35,12 +35,12 @@ class Dongle():
 
         print("dongle.py: try receive ack")
         # NOTE(Michael): The following code always hangs. Not sure why.
-        # try:
-        #     self._receive(ack_timeout)
-        # except Empty:
-        #     print("dongly.py: except...")
-        #     self.send(address, message_type, payload, ack_timeout, retries + 1)
-        #     print("dongle.py: sent ")
+        try:
+            self._receive(ack_timeout)
+        except Empty:
+            print("dongly.py: except...")
+            self.send(address, message_type, payload, ack_timeout, retries + 1)
+            print("dongle.py: sent ")
 
     def _receive(self, timeout):
         return self._queue.get(timeout=timeout)
