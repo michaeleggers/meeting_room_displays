@@ -96,6 +96,12 @@ E.g. to build and flash a display call:
 make display
 ```
 
+By default the displays address is 0x030c. To change that do eg.
+```bash
+make display DISPLAY_ADDRESS=0x030d
+```
+to change the address to 0x030d. Add the display to server/config.py!
+
 To build and flash the dongle:
 Insert the dongle into a USB port and press the reset button. A red
 LED will light up. Then call:
