@@ -1,6 +1,4 @@
 ---
-**NOTE**
-
 This branch mocks event objects queried by O365 to eliminate
 the need for a Microsoft account.
 It focuses on getting data from the dongle successfully sent
@@ -48,7 +46,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ### If Udev does not work
 
-Change Makefile and config.py to use ttyACM0. Most of the time this will work
+Change Makefile and config.py to use ttyACM0. Most of the time this will work.
 Make sure you set write permission-bits for /dev/ttyACM0:
 ```
 sudo chmod 666 /dev/ttyACM0
