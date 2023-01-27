@@ -31,9 +31,14 @@ please note that at the moment only revision 1 of the e-Paper HAT is working.
 The project is based on zephyr RTOS. To clone this repository as well as
 everything needed call:
 ```bash
-west init -m https://github.com/TobiasSchaffner/meeting_room_displays.git
+west init -m https://github.com/michaeleggers/meeting_room_displays.git
+git checkout mock-o365
 west update
 ```
+## Use the display <-> room config
+Rename config.py.template to config.py. The file resides in server/.
+Note that on this branch, the server will be stuck in an endless send, receive loop
+when a display that is present in config.py is not connected!
 
 ## Udev rule
 To make it easier to flash the dongle it is recommended to apply the provided
